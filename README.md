@@ -1,6 +1,6 @@
 # RegressionCloud
 ---
-*Created by:* Julian David Castiblanco Real
+**Created by:** Julian David Castiblanco Real
 ---
 ## Description
 ---
@@ -12,3 +12,15 @@ The work is conducted within the framework of a Machine Learning bootcamp and em
 - Python 3.8 or higher (As a recomendation, the newer versions are better due to the compatibility with the creations of virtual environments in multiple IDEs)
 - Jupyter Notebook or JupyterLab
 - libraries:
++ numpy
++ matplotlib
+
+**Execution:**
+1. Clone Repository:
+  git clone <Repository_URL>
+  cd <Repository_name>
+2. Setup the virtual environment:
+  python -m venv venv
+  source venv/bin/activate       # On Linux/Mac
+  venv\Scripts\activate          # On Windows
+3. 
