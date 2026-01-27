@@ -78,10 +78,12 @@ All models are trained using fully vectorized gradient descent, and training beh
 
 
 ### Results
+
 The results show a consistent reduction in loss as additional polynomial and interaction terms are introduced. The full polynomial model achieves the lowest error, highlighting the importance of higher-order features and interactions for accurately modeling stellar luminosity.
 
 This notebook also analyzes the sensitivity of the cost function to the interaction coefficient and demonstrates inference by predicting the luminosity of a new star.
 To view the full implementation and results, see the notebook at the following link:
 [Open Notebook 2](02_part2_polyreg.ipynb)
+
 --- 
 ### AWS SageMaker Execution Evidence
