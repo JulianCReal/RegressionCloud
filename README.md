@@ -89,3 +89,12 @@ To view the full implementation and results, see the notebook at the following l
 
 --- 
 ### AWS SageMaker Execution Evidence
+
+---
+### Conclusions
+
+This lab examined regression modeling by first applying a simple linear model to relate stellar mass and luminosity, and then enhancing the model through polynomial features and interaction terms. Building the model components from first principles—including the loss function, gradient derivation, and gradient descent—provided a clear understanding of the optimization process and the influence of learning rate selection on convergence behavior.
+
+The visualization of the cost surface and training curves offered valuable insight into model stability and the presence of a single global minimum. While the linear model successfully captured the general upward trend in the data, it was unable to represent the rapid increase in luminosity observed at higher stellar masses. Expanding the feature space with nonlinear and interaction terms significantly improved model expressiveness and led to lower training error.
+
+Overall, the lab emphasizes the critical role of feature engineering, systematic experimentation, and result interpretation when developing regression models for real-world, nonlinear phenomena.
