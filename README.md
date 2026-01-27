@@ -1,6 +1,6 @@
 # RegressionCloud
 ---
-**Created by:** Julian David Castiblanco Real
+*Created by:* Julian David Castiblanco Real
 ---
 ## Description
 ---
@@ -62,3 +62,26 @@ To view the full implementation and results, see the notebook at the following l
 
 ---
 ### Part 2
+In the second part of the lab, the linear model is extended to capture nonlinear behavior and feature interactions by incorporating polynomial feature engineering. Three progressively more expressive feature sets are evaluated:
+- **M1:** \( [M, T] \)
+- **M2:** \( [M, T, M^2] \)
+- **M3:** \( [M, T, M^2, M \cdot T] \)
+The full polynomial model (M3) is defined as:
+
+$$
+\hat{L} = w_1 M + w_2 T + w_3 M^2 + w_4 (M \cdot T) + b
+$$
+
+This formulation enables the model to represent nonlinear dependencies between stellar mass, temperature, and luminosity that cannot be captured by a simple linear model.
+
+All models are trained using fully vectorized gradient descent, and training behavior is analyzed through loss-versus-iteration plots. The impact of feature complexity is evaluated by comparing final loss values and predicted-versus-actual outputs across models.
+
+
+### Results
+The results show a consistent reduction in loss as additional polynomial and interaction terms are introduced. The full polynomial model achieves the lowest error, highlighting the importance of higher-order features and interactions for accurately modeling stellar luminosity.
+
+This notebook also analyzes the sensitivity of the cost function to the interaction coefficient and demonstrates inference by predicting the luminosity of a new star.
+To view the full implementation and results, see the notebook at the following link:
+[Open Notebook 2](02_part2_polyreg.ipynb)
+--- 
+### AWS SageMaker Execution Evidence
