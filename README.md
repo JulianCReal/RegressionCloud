@@ -126,6 +126,11 @@ The following steps summarize the process used to upload and run the notebooks:
 
 11. then we will save changes and log out from AWS:
 ![alt text](Images/image-11.png)
+
+**Local Execution vs AWS SageMaker Execution**
+
+Both notebooks executed successfully in the local environment and within AWS SageMaker, producing identical numerical results and visualizations. No modifications to the code were necessary when transitioning to the cloud platform. The only noticeable difference was a slight increase in execution time when running the notebooks in SageMaker, which can be attributed to the overhead of the cloud-based execution environment.
+
 ---
 ### Conclusions
 
