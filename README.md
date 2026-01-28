@@ -97,35 +97,35 @@ The following steps summarize the process used to upload and run the notebooks:
 1. We open AWS Academy and look for the lab created by the teacherand start the lab and access AWS.
 
 2. Inside AWS use the search bar in order to find SageMaker Studio (Select the one that says AI). After that select the option Domains in the side bar and click the Open Studio button so you can access SageMaker; if done correctly, you''l see the next page:
-![alt text](image.png)
+![alt text](Images/image.png)
 
 3. In the SageMaker we click to open the editor and run our VS code if we have it:
-![alt text](image-1.png)
+![alt text](Images/image-1.png)
 
 4. Then we click on run button and click on open editor:
-![alt text](image-2.png)
-![alt text](image-3.png)
+![alt text](Images/image-2.png)
+![alt text](Images/image-3.png)
 
 5. Then we will upload our notebooks in the code editor and start the configuration.
 
 6. Inside the editor, the resemblance with Visual Studio Code will help in the following steps. Select the Open Folder option and select ``/home/sagemaker-user``folder so we can start uploading our notebooks.
 
 7. we will drag the notebooks to the window:
-![alt text](image-5.png)
-![alt text](image-8.png)
+![alt text](Images/image-5.png)
+![alt text](Images/image-8.png)
 
 8. we select the kernel to run our notebooks:
-![alt text](image-6.png)
+![alt text](Images/image-6.png)
 
 9. When the Kernel is selected, click the Run All button in both Notebooks to execute all code cells:
-![alt text](image-7.png)
+![alt text](Images/image-7.png)
 
 10. After execution, we verify each cell searching any error, if there's no error, the process was succesfully:
-![alt text](image-9.png)
-![alt text](image-10.png)
+![alt text](Images/image-9.png)
+![alt text](Images/image-10.png)
 
 11. then we will save changes and log out from AWS:
-![alt text](image-11.png)
+![alt text](Images/image-11.png)
 ---
 ### Conclusions
 
