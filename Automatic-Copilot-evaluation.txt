@@ -1,0 +1,225 @@
+============================================================
+  AUTOMATIC COPILOT EVALUATION – TA GRADING REPORT
+  Repository: JulianCReal/RegressionCloud
+  Evaluated:  2026-02-27
+============================================================
+
+------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------
+This repository presents a well-structured and technically
+complete implementation of linear and polynomial regression
+applied to stellar luminosity prediction. Both notebooks
+implement all mandatory elements from scratch using only
+NumPy and Matplotlib, with clear derivations, vectorized
+operations, and meaningful physical interpretations. The
+README provides thorough SageMaker execution evidence with
+annotated screenshots. The submission demonstrates solid
+conceptual understanding of gradient-based optimization,
+feature engineering, and model selection, making it a
+strong, passing deliverable.
+
+------------------------------------------------------------
+GRADING BREAKDOWN  (0.0 – 5.0 scale)
+------------------------------------------------------------
+
+1. Repository Structure & Compliance  ................  0.5 / 0.5
+   - README.md present and detailed.                          ✓
+   - Two notebooks covering Part I and Part II present.       ✓
+   - All datasets (M, T, L arrays) defined inline in each     ✓
+     notebook; no external files loaded.
+   - Only numpy and matplotlib imported; no ML libraries.     ✓
+   Deductions: none.
+
+2. Notebook 1 – Linear Regression  .................. 1.9 / 2.0
+   Items evaluated:
+   ✓ Dataset scatter plot with commentary on linearity and
+     physical plausibility.
+   ✓ Hypothesis function predict(M, w, b) and MSE loss
+     mse_loss() implemented correctly.
+   ✓ [MANDATORY] Cost surface: 3-D surface + contour plot
+     over a (w, b) grid, with printed interpretation of the
+     convex landscape and global minimum.
+   ✓ Analytical gradient derivation documented in docstrings
+     (∂J/∂w and ∂J/∂b) with a closed-form correctness check.
+   ✓ Non-vectorized gradient (loop-based) implemented in
+     compute_gradients_loop().
+   ✓ Vectorized gradient implemented in
+     compute_gradients_vectorized(); both match numerically.
+   ✓ [MANDATORY] Convergence plot: log-scale loss vs.
+     iteration for all three learning rates, plus a zoomed
+     final-200-iteration detail subplot.
+   ✓ [MANDATORY] Learning-rate experiments: lr = 0.001,
+     0.01, 0.05 — qualitative discussion of stability vs.
+     speed trade-off included.
+   ✓ Final fit plot and residual plot with systematic error
+     analysis (U-shaped residuals interpreted correctly).
+   ✓ Conceptual Q&A: astrophysical meaning of w; limits of
+     the linear assumption.
+   Minor deduction (-0.1): The MSE in the README is written
+   as (1/2m)·Σ(...)² but the code uses np.mean(...)²  =
+   (1/n)·Σ(...)², causing the gradients to carry a factor
+   2/n instead of 1/m. Both are valid conventions, but a
+   brief comment noting the deliberate choice would have
+   avoided confusion.
+
+3. Notebook 2 – Polynomial Regression  .............. 1.9 / 2.0
+   Items evaluated:
+   ✓ 2-D scatter coloured by temperature + 3-D scatter of
+     (M, T, L) — temperature encoding clearly implemented.
+   ✓ Feature engineering via build_feature_matrix():
+       M1 → [M_norm, T_norm]
+       M2 → [M_norm, T_norm, M_norm²]
+       M3 → [M_norm, T_norm, M_norm², M_norm·T_norm]
+     Normalization by column mean applied consistently.
+   ✓ Vectorized loss mse_loss_poly() and gradients
+     compute_gradients_poly() using matrix operations
+     (X^T @ error); derivation commented.
+   ✓ [MANDATORY] Training and convergence plot: loss curve
+     + parameter evolution for the full M3 model.
+   ✓ [MANDATORY] Feature selection experiment: M1, M2, M3
+     trained and compared; progressive loss reduction
+     quantified and interpreted.
+   ✓ [MANDATORY] Interaction cost analysis: w_MT swept over
+     a range while other parameters are fixed at optimal
+     values; parabolic cost curve plotted with clear minimum.
+   ✓ [MANDATORY] Inference example: prediction for M=1.3,
+     T=6600 across all three models; cross-checked against
+     training data range; astrophysical reasonableness argued.
+   Minor deduction (-0.1): The visualization in Cell 4
+   allocates a 1×3 grid (subplots 131, 132) but only fills
+   two of the three positions — the third panel is silently
+   absent. The variable is also named ax3 while only two
+   axes exist, which is slightly misleading. No functional
+   impact, but a small code-quality issue.
+
+4. Cloud Execution Evidence (SageMaker)  .............. 0.5 / 0.5
+   ✓ Step-by-step description of the SageMaker domain,
+     Code Editor launch, and notebook upload workflow.
+   ✓ 12 annotated screenshots covering:
+       – SageMaker Studio landing page
+       – Code Editor launch
+       – Notebook upload and kernel selection
+       – Run-All execution for both notebooks
+       – Output cells and plots visible after execution
+   ✓ At least one plot is visible in the execution screenshots.
+   ✓ Brief but explicit local-vs-cloud comparison (identical
+     results; slight cloud overhead noted).
+   Deductions: none.
+
+------------------------------------------------------------
+FINAL GRADE
+------------------------------------------------------------
+Final grade: 4.8 / 5.0
+
+Result: PASS  (threshold: 3.0 / 5.0)
+
+------------------------------------------------------------
+STRENGTHS
+------------------------------------------------------------
+• Complete coverage of every mandatory item across both
+  notebooks (cost surface, convergence analysis, learning-
+  rate sweep, feature selection, w_MT sweep, inference demo).
+• Clean, readable code with informative function docstrings
+  and printed explanations for each step.
+• Vectorized and loop-based gradient implementations are both
+  present and verified to match numerically.
+• Physical interpretation of model parameters is accurate and
+  grounded in stellar astrophysics (mass–luminosity relation,
+  Stefan–Boltzmann context).
+• SageMaker evidence is thorough and credible, with explicit
+  screenshots at every stage of the cloud workflow.
+• README gives a self-contained summary of both parts with
+  equations, results, and a local-vs-cloud comparison.
+
+------------------------------------------------------------
+ISSUES & MISSING ELEMENTS
+------------------------------------------------------------
+• Minor MSE notation inconsistency between README (1/2m) and
+  code (1/n); internally consistent but could confuse readers.
+• Cell 4 of Notebook 2 references a 3-subplot figure but only
+  defines two axes, leaving a silent gap in the layout.
+• No explicit discussion of potential overfitting for the M3
+  model given the small dataset (n=10, 4 features + bias);
+  a brief comment would strengthen the analysis.
+• The learning-rate experiments in Notebook 1 do not include
+  a diverging case (e.g., lr=0.5 or lr=1.0), which would
+  have made the discussion of instability more compelling.
+
+------------------------------------------------------------
+TA FEEDBACK TO STUDENT
+------------------------------------------------------------
+Excellent work overall. You have covered every mandatory
+requirement with care and produced clean, well-commented code.
+The physical interpretations stand out: connecting the
+interaction term to the Stefan–Boltzmann law and mass–radius
+relations shows genuine domain understanding, not just
+mechanical formula application.
+
+For future iterations, consider:
+1. Adding a deliberately diverging learning rate to the
+   experiments — seeing the loss explode makes the stability
+   argument much more vivid.
+2. With only 10 data points and 5 parameters in M3, noting
+   the risk of overfitting (even if not observed here) would
+   demonstrate deeper statistical awareness.
+3. In the visualization cells, make sure the number of subplot
+   slots matches the number of axes you actually populate —
+   small details like this affect code maintainability.
+
+Keep it up; this is a strong submission.
+
+------------------------------------------------------------
+AI-GENERATION ASSESSMENT  (NON-GRADING – informative only)
+------------------------------------------------------------
+
+A. Qualitative Assessment
+   Indicators suggesting AI involvement:
+   - Highly uniform code style and docstring format across
+     all functions in both notebooks.
+   - Physical interpretations are notably precise and complete
+     (e.g., citing Stefan–Boltzmann and mass–radius relations)
+     with no sign of exploratory or tentative phrasing.
+   - Section headers and print-statement labels follow an
+     almost template-like structure throughout.
+   - Markdown explanations are polished with minimal typos
+     or informal language.
+
+   Indicators of human involvement:
+   - Cell 2 in both notebooks contains an explicit meta-note
+     acknowledging that the assignment's step order was not
+     followed, and explaining why — this kind of self-aware
+     disclaimer is more typical of human authorship.
+   - Minor layout oversight (3-slot subplot with only 2 axes
+     populated) is consistent with organic, iterative coding
+     rather than generated output that would typically be
+     self-consistent.
+   - The choice to present printed output explanations inline
+     (rather than separate markdown cells) reflects a personal
+     stylistic decision.
+
+B. Quantitative Estimate
+   Code:               ~65%  AI-assisted
+   Explanations / MD:  ~70%  AI-assisted
+   README:             ~75%  AI-assisted
+
+C. Commentary
+   The repository exhibits many stylistic hallmarks commonly
+   associated with AI-assisted writing: uniform formatting,
+   comprehensive coverage with no apparent gaps, polished
+   scientific prose, and a structured narrative that maps
+   cleanly onto the assignment rubric. At the same time, the
+   meta-commentary in the notebooks and the small
+   implementation inconsistency suggest active human
+   involvement in assembling and customizing the work. The
+   most likely scenario is that the student used AI tools as
+   a productivity aid — generating boilerplate, refining
+   explanations, and checking correctness — while still
+   exercising personal judgment in structuring the submission.
+
+   This assessment is observational and does not imply
+   misconduct.
+
+============================================================
+End of Automatic Copilot Evaluation
+============================================================
